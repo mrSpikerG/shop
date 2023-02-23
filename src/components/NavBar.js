@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+
 class NavBar extends Component {
+  
+  
+ 
   render() {
     return (
       <div className="container-fluid bg-dark mb-30">
+      
         <div className="row px-xl-5">
           <div className="col-lg-3 d-none d-lg-block">
             <a className="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style={{ height: '65px', padding: '0 30px' }}>

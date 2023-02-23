@@ -32,12 +32,12 @@ class HomePage extends Component {
                 <ProductList title="Лучшие товары" />
 
 
-                <div class="container-fluid pt-5 pb-3">
-                    <div class="row px-xl-5">
-                        <div class="col-md-6">
+                <div className="container-fluid pt-5 pb-3">
+                    <div className="row px-xl-5">
+                        <div className="col-md-6">
                             <SpecialOffer offerType='1' />
                         </div>
-                        <div class="col-md-6">
+                        <div className="col-md-6">
                             <SpecialOffer offerType='2' />
                         </div>
                     </div>

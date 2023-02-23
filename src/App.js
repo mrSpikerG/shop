@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './style/App.css';
+
+
 import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
@@ -8,10 +10,14 @@ import NotFoundPage from './pages/Exceptions/NotFoundPage'
 import Checkout from './pages/Checkout';
 import ContactUs from './pages/ContactUs';
 import Shop from './pages/Shop';
+import { useState } from 'react';
+import ASideBar from './components/admin/ASideBar';
+
+
 
 function App() {
+  const [categories, setCategories] = useState();
   return (
-
     <div className="App">
       <Router>
         <Routes >
