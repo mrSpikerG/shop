@@ -18,7 +18,6 @@ class Login extends Component {
             url: `https://localhost:7020/api/Auth/Login/login?UserName=${this.state.login}&Password=${this.state.password}`,
         }).then(function (response) {
             alert('Добро пожаловать');
-            console.log(response.data);
             sessionStorage.setItem("token", response.data.token);
             sessionStorage.setItem("username", response.data.userName);
         });
