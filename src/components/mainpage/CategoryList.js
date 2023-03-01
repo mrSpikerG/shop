@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Category from './Category';
+import getBaseURI from '../../states';
 
 class CategoryList extends Component {
 
@@ -20,12 +21,12 @@ class CategoryList extends Component {
             this.state.isMounted = true;
             axios({
                 method: 'get',
-                url: `https://localhost:7020/api/Category/Get`,
+                url: `${getBaseURI()}/api/Category/Get`,
             }).then(function (resp) {
                 for (let item of resp.data) {
                     axios({
                         method: 'get',
-                        url: `https://localhost:7020/api/Category/GetCategoryCount?id=${item.id}`,
+                        url: `${getBaseURI()}/api/Category/GetCategoryCount?id=${item.id}`,
                     }).then(function (response) {
                         if (this.state.categoryList.indexOf([item, response.data]) === -1) {
                             this.state.categoryList.push([item, response.data]);

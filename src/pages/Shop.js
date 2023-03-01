@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar';
 import FooterBar from '../components/FooterBar';
 import axios from 'axios';
 import Product from '../components/shop/Product';
+import getBaseURI from '../states';
 
 class Shop extends Component {
 
@@ -32,7 +33,7 @@ class Shop extends Component {
     this.state.isMounted = true;
     axios({
       method: 'get',
-      url: `https://localhost:7020/api/Category/Get`,
+      url: `${getBaseURI()}/api/Category/Get`,
     }).then(function (resp) {
 
       this.setState({ categories: resp.data.map(item => <option key={`categoryOption-${item.id}`} value={item.id}>{item.name}</option>) });
@@ -43,7 +44,7 @@ class Shop extends Component {
   updateProducts() {
     axios({
       method: 'get',
-      url: `https://localhost:7020/api/Shop/GetPages?count=${this.state.count}&categoryId=${this.state.category}&minCost=${this.state.minCost}&maxCost=${this.state.maxCost}`,
+      url: `${getBaseURI()}/api/Shop/GetPages?count=${this.state.count}&categoryId=${this.state.category}&minCost=${this.state.minCost}&maxCost=${this.state.maxCost}`,
     }).then(function (resp) {
 
       this.setState({ maxPages: resp.data }, () => {
@@ -69,7 +70,7 @@ class Shop extends Component {
 
     axios({
       method: 'get',
-      url: `https://localhost:7020/api/Shop/GetByPage?page=${this.state.page}&count=${this.state.count}&categoryId=${this.state.category}&minCost=${this.state.minCost}&maxCost=${this.state.maxCost}`,
+      url: `${getBaseURI()}/api/Shop/GetByPage?page=${this.state.page}&count=${this.state.count}&categoryId=${this.state.category}&minCost=${this.state.minCost}&maxCost=${this.state.maxCost}`,
     }).then(function (resp) {
       this.setState({products: resp.data.map((item,index)=>{ return <Product key={`product-${index}`} imageSrc={item.image} prodName={item.name} price={item.price}/> })});
     }.bind(this));

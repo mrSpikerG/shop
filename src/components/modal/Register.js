@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import getBaseURI from '../../states';
 
 class Register extends Component {
 
@@ -17,7 +18,7 @@ class Register extends Component {
     regFunc() {
         axios({
             method: 'post',
-            url: `https://localhost:7020/api/Auth/RegUser/regUser?UserName=${this.state.login}&Password=${this.state.password}&Email=${this.state.email}`,
+            url: `${getBaseURI()}/api/Auth/RegUser/regUser?UserName=${this.state.login}&Password=${this.state.password}&Email=${this.state.email}`,
         }).then(function (response) {
             alert('Добро пожаловать');
             sessionStorage.setItem("token", response.data.token);

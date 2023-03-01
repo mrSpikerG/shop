@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import getBaseURI from '../../states';
 
 class Login extends Component {
 
@@ -15,7 +16,7 @@ class Login extends Component {
     loginFunc() {
         axios({
             method: 'post',
-            url: `https://localhost:7020/api/Auth/Login/login?UserName=${this.state.login}&Password=${this.state.password}`,
+            url: `${getBaseURI()}/api/Auth/Login/login?UserName=${this.state.login}&Password=${this.state.password}`,
         }).then(function (response) {
             alert('Добро пожаловать');
             sessionStorage.setItem("token", response.data.token);
