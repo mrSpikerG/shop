@@ -6,11 +6,21 @@ import FooterBar from '../components/FooterBar';
 
 import BillingForm from '../components/checkout/BillingForm';
 class Checkout extends Component {
+
+    getCost() {
+        let count = 0;
+        for (let item of this.props.cost) {
+          count += (Number)(item);
+        }
+        return count;
+      }
+    
+
     render() {
         return (<div>
             <TopBar />
 
-            <NavBar />
+            <NavBar buyCount={this.props.buyItems}/>
             <div className="container-fluid">
                 <div className="row px-xl-5">
                     <div className="col-lg-8">
@@ -23,24 +33,13 @@ class Checkout extends Component {
                         <h5 className="section-title position-relative text-uppercase mb-3"><span className="bg-secondary pr-3">Ваш заказ</span></h5>
                         <div className="bg-light p-30 mb-5">
                             <div className="border-bottom">
-                                <h6 className="mb-3">Products</h6>
-                                <div className="d-flex justify-content-between">
-                                    <p>Product Name 1</p>
-                                    <p>$150</p>
-                                </div>
-                                <div className="d-flex justify-content-between">
-                                    <p>Product Name 2</p>
-                                    <p>$150</p>
-                                </div>
-                                <div className="d-flex justify-content-between">
-                                    <p>Product Name 3</p>
-                                    <p>$150</p>
-                                </div>
+                                <h6 className="mb-3">Товары</h6>
+                                {this.props.buyItems.map((item, index) => { return   <div className="d-flex justify-content-between"><p>{item.name}</p><p>${this.props.cost[index]}</p></div> })}
                             </div>
                             <div className="border-bottom pt-3 pb-2">
                                 <div className="d-flex justify-content-between mb-3">
                                     <h6>Общая стоимость</h6>
-                                    <h6>$150</h6>
+                                    <h6>${this.getCost()}</h6>
                                 </div>
                                 <div className="d-flex justify-content-between">
                                     <h6 className="font-weight-medium">Доставка</h6>
@@ -50,7 +49,7 @@ class Checkout extends Component {
                             <div className="pt-2">
                                 <div className="d-flex justify-content-between mt-2">
                                     <h5>Итоговая стоимость</h5>
-                                    <h5>$160</h5>
+                                    <h6>${this.getCost()+10}</h6>
                                 </div>
                             </div>
                         </div>

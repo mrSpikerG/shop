@@ -33,7 +33,7 @@ class CategoryList extends Component {
                             this.setState({result: this.state.categoryList.map(function (item) {
                                 return <Category categoryName={item[0].name} count={item[1]} image={item[0].image} />;
                             })});
-                            console.log(   this.state.result);
+                          
                         }
                     }.bind(this));
                 }

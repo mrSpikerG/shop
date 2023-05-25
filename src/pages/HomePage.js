@@ -15,7 +15,7 @@ class HomePage extends Component {
             <div>
                 <TopBar />
 
-                <NavBar />
+                <NavBar buyCount={this.props.buyItems} />
 
                 <div className="container-fluid mb-3">
                     <div className="row px-xl-5">
@@ -29,7 +29,7 @@ class HomePage extends Component {
                 <FeaturesList />
                 <CategoryList />
 
-                <ProductList title="Лучшие товары" />
+                <ProductList buyItems={this.props.buyItems} title="Лучшие товары" />
 
 
                 <div className="container-fluid pt-5 pb-3">
@@ -43,7 +43,7 @@ class HomePage extends Component {
                     </div>
                 </div>
 
-                <ProductList title="Последние товары" />
+                <ProductList buyItems={this.props.buyItems} title="Последние товары" />
 
                 <FooterBar />
             </div>

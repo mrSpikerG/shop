@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Product extends Component {
+class ProductRecomend extends Component {
 
 
     constructor(props) {
@@ -15,7 +15,7 @@ class Product extends Component {
 
     render() {
         return (
-            <div className="col-lg-4 col-md-6 col-sm-6 pb-1">
+            <div className="col-lg-3 col-md-6 col-sm-6 pb-1">
                 <div className="product-item bg-light mb-4">
                     <div className="product-img position-relative overflow-hidden">
                         <img className="img-fluid w-100" src={this.props.item.image} onError={({ currentTarget }) => {
@@ -43,8 +43,6 @@ class Product extends Component {
     }
 }
 
-Product.propTypes = {
 
-};
 
-export default Product;
+export default ProductRecomend;

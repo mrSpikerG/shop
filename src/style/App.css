@@ -9702,6 +9702,12 @@ a.text-dark:hover, a.text-dark:focus {
   animation: action 1s infinite alternate;
 }
 
+.product-item-text{
+  height: 70px;
+  display: block;
+  padding: 0px 30px;
+}
+
 .billingform{
   margin-bottom: 30px;
 }

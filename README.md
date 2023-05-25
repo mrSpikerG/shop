@@ -1,10 +1,10 @@
-# PhoneShop - Сайт для оценки моих возможностей :3
-
-Данный проект, является всего-лишь проектом для моего личного обучения.
+# PhoneShop - front part of site created to test my skills
+This project needs just for study
 
 ## Доступные скрипты
 
-В главном репозитории вы можете активировать следующие скрипты:
+In the root folder you can use
+
 
 ### `npm start`
 ### `npm run build`
